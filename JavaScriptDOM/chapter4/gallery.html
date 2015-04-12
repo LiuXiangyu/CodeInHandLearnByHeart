@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Image Gallery</title>
+  </head>
+  <body>
+    <h1>Snapshots</h1>
+    <ul>
+      <li>
+        <a href="images/QQ20150403-1.png" title="A fireworks display" onclick="showPic(this); return false;">Firworks</a>
+      </li>
+      <li>
+        <a href="images/QQ20150403-2.png" title="A cup of black coffee" onclick="showPic(this); return false;">Coffee</a>
+      </li>
+      <li>
+        <a href="images/QQ20150403-3.png" title="A red, red rose" onclick="showPic(this); return false;">Rose</a>
+      </li>
+      <li>
+        <a href="images/QQ20150403-4.png" title="The famous clock" onclick="showPic(this); return false;">Big Ben</a>
+      </li>
+    </ul>
+    <img id="placeholder" src="images/QQ20150410-1@2x.png" alt="my image gallery" />
+    <p id="description">Choose an iamge.</p>
+    <script type="text/javascript" src="showPic.js"></script>
+    <script type="text/javascript">
+      window.onload = countBodyChildren;
+      function countBodyChildren() {
+        var body_element = document.getElementsByTagName("body")[0];
+        alert(body_element.childNodes.length);
+      }
+    </script>
+  </body>
+</html>
