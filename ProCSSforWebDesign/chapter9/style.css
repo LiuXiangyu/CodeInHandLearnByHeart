@@ -1,0 +1,54 @@
+body {
+  color: #000;
+  font: 76%/1.5em "Lucida Grande", Verdana, Geneva, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: "Trebuchet MS", Verdana, Geneva, Helvetica, sans-serif;
+  font-weight: normal;
+  line-height: 1em;
+  margin-top: 0;
+}
+
+#header {
+  background-color: #dfd;
+  border: 2px solid #060;
+}
+
+#footer {
+  background-color: #fdd;
+  border: 1px solid #c00;
+}
+
+#left, #right {
+  background-color: #ddf;
+  border: 2px solid #00c;
+}
+
+#header hr, #footer hr {
+  display: none;
+}
+
+#left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 175px;
+}
+
+#right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 175px;
+}
+
+#container {
+  position: relative;
+}
+
+#content {
+  margin: 0 190px;
+}
