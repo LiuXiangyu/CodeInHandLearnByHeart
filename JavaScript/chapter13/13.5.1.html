@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <ul id="myLinks">
+    <li id="goSomewhere">Go somewhere</li>
+    <li id="doSomething">Do something</li>
+    <li id="sayHi">Say hi</li>
+  </ul>
+  <script>
+    var list = document.getElementById("myLinks");
+
+    list.onclick = function(event) {
+      switch(event.target.id) {
+        case "doSomething":
+          document.title = "I changed the document's title";
+        break;
+        case "goSomewhere":
+          location.href = "http://liuxiangyu.net";
+        break;
+        case "sayHi":
+        alert("hi");
+        break;
+      }
+    };
+  </script>
+</body>
+</html>

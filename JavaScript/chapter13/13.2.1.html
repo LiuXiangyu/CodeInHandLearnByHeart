@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    #div1 {
+      height: 1000px;
+    }
+  </style>
+</head>
+<body>
+  <div id="div1">
+    <div id="div2">
+      <div id="div3">hello world</div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("div1").onclick = function() {
+      console.log("div1");
+    };
+    document.getElementById("div2").onclick = function() {
+      console.log("div2");
+    };
+    document.getElementById("div3").onclick = function(event) {
+      console.log("div3");
+      event.stopPropagation();
+    };
+    window.onresize = function() {
+      console.log("resize!");
+    };
+    window.onscroll = function() {
+      console.log("scroll!");
+    };
+  </script>
+</body>
+</html>

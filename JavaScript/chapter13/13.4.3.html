@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="element" style="width:200px;height:200px;background-color:black;">
+  </div>
+  <script>
+    var element = document.getElementById("element");
+    function handler(event) {
+      console.log(this.nodeName + " " + event.type + " " + event.clientX + " " + event.clientY);
+    }
+    element.onclick = handler;
+    element.ondblclick = handler;
+    element.onmousedown = handler;
+    element.onmousemove = handler;
+    element.onmouseout = handler;
+    element.onmouseover = handler;
+    element.onmouseup = handler;
+  </script>
+</body>
+</html>

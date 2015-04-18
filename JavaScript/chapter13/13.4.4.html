@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <textarea id="area">
+  </textarea>
+  <script>
+    function handler(event) {
+      console.log(this.nodeName + " " + event.type + " " + event.keyCode);
+    }
+    var area = document.getElementById("area");
+    area.onkeyup = handler;
+    area.onkeydown = handler;
+    area.onkeypress = handler;
+    area.ontextInput = function(event) {
+      console.log(event.data);
+    };
+  </script>
+</body>
+</html>
