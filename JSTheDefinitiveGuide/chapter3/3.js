@@ -160,3 +160,60 @@ typeof (now + 1) // "string"
 typeof (now - 1) // "number"
 now == now.toString();
 now > (now - 1)
+
+var scope = "global";
+function checkscope() {
+    var scope = "local";
+    return scope;
+}
+checkscope(); // "local"
+
+///////////////////////////////////////////////
+scope = "global";
+function checkscope2() {
+    scope = "local";
+    myscope = "local";
+    return [scope, myscope];
+}
+
+checkscope2() // ["local", "local"]
+scope // "local"
+myscope // "local"
+//////////////////////////////////////////////
+var scope = "global scope";
+function checkscope() {
+    var scope = "local scope";
+    function netsted() {
+        var scope = "netsted scope";
+        return scope;
+    }
+    return netsted();
+}
+checkscope()
+
+/////////////////////////////////////////////////
+function test(o) {
+    var i = 0;
+    if (typeof o == "object") {
+        var j = 0;
+        for (var k = 0; k < 10; k++) {
+            console.log(k);
+        }
+    }
+    console.log(j);
+}
+
+var scope = "global";
+function f() {
+    console.log(scope); // "undefined"
+    var scope = "local"; 
+    console.log(scope); // "local"
+}
+
+///////////////////////////////////////////
+var truevar = 1;
+fakevar = 2;
+this.fakevar2 = 3;
+delete truevar // false
+delete fakevar // true
+delete this.fakevar2 // true
