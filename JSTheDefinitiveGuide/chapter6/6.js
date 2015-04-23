@@ -123,3 +123,72 @@ function keys(o) {
 
 Object.keys();
 Object.getOwnPropertyNames();
+
+var o = {
+    data_prop: value,
+
+    get accessor_prop() {},
+    set accessor_prop(value) {},
+};
+
+var p = {
+    x: 1.0,
+    y: 1.0,
+
+    get r() { return Math.sqrt(this.x * this.x + this.y * this.y);},
+    set r(newvalue) {
+        var oldvalue = Math.sqrt(this.x * this.x + this.y * this.y);
+        var ratio = newvalue/oldvalue;
+        this.x *= ratio;
+        this.y *= ratio;
+    },
+    get theta() { return Math.atan2(this.y, this.x); }
+};
+
+Object.getOwnPropertyDescriptor({x:1}, "x");
+
+Object.getOwnPropertyDescriptor(random, "octet");
+
+// undefined
+Object.getOwnPropertyDescriptor({}, 'x');
+Object.getOwnPropertyDescriptor({}, "toString");
+
+var o = {};
+Object.defineProperty(o, "x", {
+    value: 1,
+    writable: true,
+    enumerable: false,
+    configurable: true
+});
+
+o.x;
+Object.keys(o); // []
+
+Object.defineProperty(o, "x", {
+    writable: false
+});
+
+o.x = 2; // 操作失败
+o.x // 1
+Object.defineProperty(o, "x", {
+    value: 2
+});
+o.x // 2
+
+Object.defineProperty(o, "x", {
+    get: function() {
+        return 0;
+    }
+});
+o.x // 0
+
+var p = {x:1};
+var o = Object.create(p);
+p.isPrototypeOf(o); // true
+Object.prototype.isPrototypeOf(o); // true
+
+function classof(o) {
+    if (o === null) return "Null";
+    if (o === undefined) return "Undefined";
+    return Object.prototype.toString.call(o).slice(8, -1);
+}
